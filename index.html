@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 class="Me">Mobile Packages Bundles</h2>
+    <div class="button_1">
+    <select name="Bundles" id="Bundles">
+      <option value="Bundle_1">(A) Package A:10_Days</option>
+      <option value="Bundle_2">(B) Package B:20_Days</option>
+      <option value="Bundle_3">(C) Package C:30_Days</option>
+    </select>
+    
+    <button type="button" onclick="subscribe()">Subscribe</button>
+</div>
+    <script>
+      function subscribe() {
+        var Bundles = document.getElementById("Bundles").value;
+        var Start = prompt("Enter Start Date", new Date().toLocaleDateString());
+        var expiryDate = new Date(new Date(Start).getTime() + (30 * 24 * 60 * 60 * 1000));
+        switch(Bundles){
+            case "Bundle_1":
+                expiryDate=new Date(new Date(Start).getTime() + (10 * 24 * 60 * 60 * 1000));
+                break;
+                case "Bundle_2":
+                expiryDate=new Date(new Date(Start).getTime() + (20 * 24 * 60 * 60 * 1000));
+                break;
+                case "Bundle_3":
+                expiryDate=new Date(new Date(Start).getTime() + (30 * 24 * 60 * 60 * 1000));
+                break;
+        }
+        alert("Expiry Date:"+ expiryDate.toLocaleDateString());
+
+      }
+    </script>
+  </body>
+</html>
